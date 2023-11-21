@@ -1,0 +1,17 @@
+﻿  BaseObject.cpp
+  BoundingBox.cpp
+  Circle.cpp
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Circle.cpp(37,14): warning C4101: 'e': unreferenced local variable
+  Color.cpp
+  Factory.cpp
+  Point.cpp
+  Polyline.cpp
+  Rectangle.cpp
+  TraineeTask.cpp
+  Triangle.cpp
+  Generating Code...
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Triangle.cpp(53): warning C4172: returning address of local variable or temporary: center
+D:\Visual Studio Projects\TraineeTask\TraineeTask\TraineeTask.cpp(22): warning C4715: 'read': not all control paths return a value
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Rectangle.cpp(63): warning C4172: returning address of local variable or temporary: center
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Polyline.cpp(52): warning C4715: 'Polyline::boundingBox': not all control paths return a value
+  TraineeTask.vcxproj -> D:\Visual Studio Projects\TraineeTask\x64\Debug\TraineeTask.exe
