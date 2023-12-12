@@ -78,16 +78,19 @@ Point Triangle::getPoint3() const
   return this->m_point_3;
 }
 
+/*In this method, calculated the midpoints of two sides, 
+then calculated the angle coefficients of the perpendiculars to the sides,
+then found the coordinates of the circle center.*/
 Point Triangle::getCircumcircleCenter() const
 {
-  Point midAB((m_point_1.x + m_point_2.x) / 2.0, (m_point_1.y + m_point_2.y) / 2.0);
-  double slopeAB = (m_point_2.y - m_point_1.y) / (m_point_2.x - m_point_1.x);
+  Point midSide_1((m_point_1.x + m_point_2.x) / 2.0, (m_point_1.y + m_point_2.y) / 2.0);
+  Point midSide_2((m_point_2.x + m_point_3.x) / 2.0, (m_point_2.y + m_point_3.y) / 2.0);
 
-  Point midBC((m_point_2.x + m_point_3.x) / 2.0, (m_point_2.y + m_point_3.y) / 2.0);
-  double slopeBC = (m_point_3.y - m_point_2.y) / (m_point_3.x - m_point_2.x);
+  double slopeSide_1 = (m_point_2.y - m_point_1.y) / (m_point_2.x - m_point_1.x);
+  double slopeSide_2 = (m_point_3.y - m_point_2.y) / (m_point_3.x - m_point_2.x);
 
-  double cx = (midAB.y - midBC.y + slopeAB * midAB.x - slopeBC * midBC.x) / (slopeAB - slopeBC);
-  double cy = slopeAB * (cx - midAB.x) + midAB.y;
+  double cx = (midSide_1.y - midSide_2.y + slopeSide_1 * midSide_1.x - slopeSide_2 * midSide_2.x) / (slopeSide_1 - slopeSide_2);
+  double cy = slopeSide_1 * (cx - midSide_1.x) + midSide_1.y;
 
   Point circleCenter(cx, cy);
   return circleCenter;

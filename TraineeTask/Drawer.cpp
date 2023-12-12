@@ -1,25 +1,5 @@
 #include "Drawer.h"
 
-Point midpoint(const Point& p1, const Point& p2) 
-{
-  return { (p1.x + p2.x) / 2.0, (p1.y + p2.y) / 2.0 };
-}
-
-Point findCircumcenter(const Point& A, const Point& B, const Point& C) 
-{
-  Point midAB = midpoint(A, B);
-  Point midBC = midpoint(B, C);
-
-  double slopeAB = -(B.x - A.x) / (B.y - A.y);
-  double slopeBC = -(C.x - B.x) / (C.y - B.y);
-
-  double cx = (slopeAB * midAB.x - slopeBC * midBC.x + midBC.y - midAB.y) / (slopeAB - slopeBC);
-  double cy = slopeAB * (cx - midAB.x) + midAB.y;
-
-  Point circumcenter = { cx, cy };
-  return circumcenter;
-}
-
 void Drawer::drawTriangle(const Color color)
 {
   BaseObject* pTriangle = Factory::factory(TriangleObject);
