@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Point.h"
+#include <GLFW/glfw3.h>
 #include <cmath>
-#include <corecrt_math_defines.h>
+#include "Point.h"
 
 class BoundingBox
 {
@@ -15,6 +15,8 @@ public:
   double calculateOrientation() const;
   void setOrientation(const double orientation);
   void setBoundingBox(Point minPoint, Point maxPoint);
+  void drawOrientedBoundingBox(float centerX, float centerY, float width, float height, float rotationAngle);
+  void drawBoundingBox();
   Point getMinPoint() const;
   Point getMaxPoint() const;
   double getOrientation() const;

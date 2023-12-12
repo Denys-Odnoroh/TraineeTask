@@ -1,17 +1,17 @@
-﻿  BaseObject.cpp
-  BoundingBox.cpp
-  Circle.cpp
-D:\Visual Studio Projects\TraineeTask\TraineeTask\Circle.cpp(37,14): warning C4101: 'e': unreferenced local variable
-  Color.cpp
-  Factory.cpp
-  Point.cpp
-  Polyline.cpp
-  Rectangle.cpp
-  TraineeTask.cpp
-  Triangle.cpp
-  Generating Code...
-D:\Visual Studio Projects\TraineeTask\TraineeTask\Triangle.cpp(53): warning C4172: returning address of local variable or temporary: center
-D:\Visual Studio Projects\TraineeTask\TraineeTask\TraineeTask.cpp(22): warning C4715: 'read': not all control paths return a value
-D:\Visual Studio Projects\TraineeTask\TraineeTask\Rectangle.cpp(63): warning C4172: returning address of local variable or temporary: center
-D:\Visual Studio Projects\TraineeTask\TraineeTask\Polyline.cpp(52): warning C4715: 'Polyline::boundingBox': not all control paths return a value
+﻿  Drawer.cpp
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(41,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(42,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(43,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(80,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(81,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(82,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(89,71): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(89,42): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(125,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(126,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(127,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(173,87): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(180,24): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(181,26): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Visual Studio Projects\TraineeTask\TraineeTask\Drawer.cpp(182,25): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   TraineeTask.vcxproj -> D:\Visual Studio Projects\TraineeTask\x64\Debug\TraineeTask.exe

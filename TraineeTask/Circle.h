@@ -24,3 +24,5 @@ public:
 };
 
 typedef SmartPtr<Circle> CirclePtr;
+
+float inputCircleRadius();

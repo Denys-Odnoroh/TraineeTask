@@ -51,3 +51,22 @@ float Circle::getRadius() const
 {
   return this->m_fRadius;
 }
+
+float inputCircleRadius()
+{
+  float dRadius;
+
+  std::cout << "Input radius (0.1...100): ";
+  std::cin >> dRadius;
+
+  while (std::cin.fail() || dRadius > 100 || dRadius < 0.1)
+  {
+    std::cin.clear();
+    std::cin.ignore(32767, '\n');
+
+    std::cout << "\nIndex is incorrect! Input correct index.\n";
+    std::cin >> dRadius;
+  }
+
+  return dRadius;
+}

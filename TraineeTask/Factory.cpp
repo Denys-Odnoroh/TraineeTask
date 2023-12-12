@@ -21,6 +21,11 @@ BaseObject* Factory::factory(createdObjects objectType)
     base = new Triangle();
     return base;
   }
+  case PolylineObject:
+  {
+    base = new Polyline(createPoint(), createPoint());
+    return base;
+  }
   }
   return nullptr;
 }

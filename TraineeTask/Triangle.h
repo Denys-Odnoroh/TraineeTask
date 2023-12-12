@@ -21,6 +21,9 @@ public:
   Point getPoint1() const;
   Point getPoint2() const;
   Point getPoint3() const;
+  Point getCircumcircleCenter() const;
+  double getLength() const;
+  double getHeight() const;
 
   void set(const Point p1, const  Point p2, const  Point p3);
 };

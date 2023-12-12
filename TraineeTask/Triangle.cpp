@@ -55,9 +55,9 @@ Point* Triangle::getCenter()
 
 bool Triangle::isValid()
 {
-  if(m_point_1.x != m_point_2.x && m_point_1.y != m_point_2.y
-    && m_point_2.x != m_point_3.x && m_point_2.y != m_point_3.y
-    && m_point_3.x != m_point_1.x && m_point_3.y != m_point_1.y)
+  if((m_point_1.x != m_point_2.x || m_point_1.y != m_point_2.y)
+    && (m_point_2.x != m_point_3.x || m_point_2.y != m_point_3.y)
+    && (m_point_3.x != m_point_1.x || m_point_3.y != m_point_1.y))
     return true;
   else
     return false;
@@ -76,4 +76,51 @@ Point Triangle::getPoint2() const
 Point Triangle::getPoint3() const
 {
   return this->m_point_3;
+}
+
+Point Triangle::getCircumcircleCenter() const
+{
+  Point midAB((m_point_1.x + m_point_2.x) / 2.0, (m_point_1.y + m_point_2.y) / 2.0);
+  double slopeAB = (m_point_2.y - m_point_1.y) / (m_point_2.x - m_point_1.x);
+
+  Point midBC((m_point_2.x + m_point_3.x) / 2.0, (m_point_2.y + m_point_3.y) / 2.0);
+  double slopeBC = (m_point_3.y - m_point_2.y) / (m_point_3.x - m_point_2.x);
+
+  double cx = (midAB.y - midBC.y + slopeAB * midAB.x - slopeBC * midBC.x) / (slopeAB - slopeBC);
+  double cy = slopeAB * (cx - midAB.x) + midAB.y;
+
+  Point circleCenter(cx, cy);
+  return circleCenter;
+}
+
+double Triangle::getLength() const
+{
+  double length;
+
+  Point vector—ordinates(m_point_2.x - m_point_1.x, m_point_2.y - m_point_1.y);
+  length = (sqrt(pow(vector—ordinates.x, 2) + pow(vector—ordinates.y, 2)));
+
+  return length;
+}
+
+double Triangle::getHeight() const
+{
+  double height;
+  double semiperimeter;
+  double vectorLength_1, vectorLength_2, vectorLength_3;
+
+  Point vector_1—ordinates(m_point_2.x - m_point_1.x, m_point_2.y - m_point_1.y);
+  Point vector_2—ordinates(m_point_3.x - m_point_2.x, m_point_3.y - m_point_2.y);
+  Point vector_3—ordinates(m_point_1.x - m_point_3.x, m_point_1.y - m_point_3.y);
+
+  vectorLength_1 = sqrt(pow(vector_1—ordinates.x, 2) + pow(vector_1—ordinates.y, 2));
+  vectorLength_2 = sqrt(pow(vector_2—ordinates.x, 2) + pow(vector_2—ordinates.y, 2));
+  vectorLength_3 = sqrt(pow(vector_3—ordinates.x, 2) + pow(vector_3—ordinates.y, 2));
+
+  semiperimeter = (vectorLength_1 + vectorLength_2 + vectorLength_3) / 2;
+
+  height = 2 / vectorLength_1 * 
+    sqrt(semiperimeter * (semiperimeter - vectorLength_1) * (semiperimeter - vectorLength_2) * (semiperimeter - vectorLength_3));
+
+  return height;
 }

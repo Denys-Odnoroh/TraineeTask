@@ -69,7 +69,7 @@ bool Rect::isValid()
   double width_1, width_2;
 
   Point vector_1—ordinates(m_point_2.x - m_point_1.x, m_point_2.y - m_point_1.y);
-  Point vector_2—ordinates(m_point_4.x - m_point_3.x, m_point_4.y - m_point_3.y);
+  Point vector_2—ordinates(m_point_3.x - m_point_4.x, m_point_3.y - m_point_4.y);
   Point vector_3—ordinates(m_point_4.x - m_point_1.x, m_point_4.y - m_point_1.y);
   Point vector_4—ordinates(m_point_3.x - m_point_2.x, m_point_3.y - m_point_2.y);
 
@@ -78,7 +78,17 @@ bool Rect::isValid()
   width_1  = (sqrt(pow(vector_3—ordinates.x, 2) + pow(vector_3—ordinates.y, 2)));
   width_2  = (sqrt(pow(vector_4—ordinates.x, 2) + pow(vector_4—ordinates.y, 2)));
 
-  if (height_1 == height_2 && width_1 == width_2)
+  double orientation_1 = atan2(vector_1—ordinates.y, vector_1—ordinates.x);
+  double orientation_2 = atan2(vector_2—ordinates.y, vector_2—ordinates.x);
+  double orientation_3 = atan2(vector_3—ordinates.y, vector_3—ordinates.x);
+  double orientation_4 = atan2(vector_4—ordinates.y, vector_4—ordinates.x);
+
+  orientation_1 = (180.0 / M_PI) * orientation_1;
+  orientation_2 = (180.0 / M_PI) * orientation_2;
+  orientation_3 = (180.0 / M_PI) * orientation_3;
+  orientation_4 = (180.0 / M_PI) * orientation_4;
+
+  if (height_1 == height_2 && width_1 == width_2 && (orientation_1 == orientation_2 && orientation_3 == orientation_4))
   {
     return true;
   }
@@ -103,4 +113,24 @@ Point Rect::getPoint3() const
 Point Rect::getPoint4() const
 {
   return this->m_point_4;
+}
+
+double Rect::calculeteLength()
+{
+  double length;
+
+  Point vector—ordinates(m_point_2.x - m_point_1.x, m_point_2.y - m_point_1.y);
+  length = (sqrt(pow(vector—ordinates.x, 2) + pow(vector—ordinates.y, 2)));
+
+  return length;
+}
+
+double Rect::calculeteWidth()
+{
+  double width;
+
+  Point vector—ordinates(m_point_4.x - m_point_1.x, m_point_4.y - m_point_1.y);
+  width = (sqrt(pow(vector—ordinates.x, 2) + pow(vector—ordinates.y, 2)));
+
+  return width;
 }

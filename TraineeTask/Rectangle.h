@@ -24,6 +24,8 @@ public:
   Point getPoint2() const;
   Point getPoint3() const;
   Point getPoint4() const;
+  double calculeteLength();
+  double calculeteWidth();
 
   void set(const Point p1,const Point p2, const Point p3, const Point p4);
   void set(const Point p1,const Point p3);

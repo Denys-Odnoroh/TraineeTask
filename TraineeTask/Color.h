@@ -1,5 +1,7 @@
 #pragma once
 
+#define COLOR_COEFFICIENT 0.003921568627451;
+
 #include <cstdint>
 
 class Color

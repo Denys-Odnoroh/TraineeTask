@@ -1,8 +1,9 @@
 #include "Polyline.h"
 
-Polyline::Polyline(Point point)
+Polyline::Polyline(Point point_1, Point point_2)
 {
-  m_pointArray.push_back(point);
+  m_pointArray.push_back(point_2);
+  m_pointArray.push_back(point_1);
 }
 
 Point* Polyline::getCenter()

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include "Point.h"
 #include "BoundingBox.h"
 #include "SmartPtr.h"
@@ -32,5 +31,6 @@ enum createdObjects
 {
   RectangleObject,
   CircleObject,
-  TriangleObject
+  TriangleObject,
+  PolylineObject,
 };

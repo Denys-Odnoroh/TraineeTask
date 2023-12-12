@@ -1,5 +1,6 @@
 #include "Factory.h"
 #include <fstream>
+#include "Drawer.h"
 
 BaseObject* read()
 {
@@ -18,10 +19,10 @@ BaseObject* read()
 
     return obj;
   }
-    
+  return nullptr;
 }
 
-void write(BaseObject* obj)
+void write(const BaseObject* obj)
 {
   std::ofstream outFile("data.bin", std::ios::binary);
 
@@ -31,6 +32,65 @@ void write(BaseObject* obj)
     outFile.write(reinterpret_cast<const char*>(&obj), sizeof(obj));
 
   outFile.close();
+}
+
+int actionSelection()
+{
+  int iActionIndex;
+
+  std::cout << "Press:\n";
+  std::cout << "    1. Add Circle.\n";
+  std::cout << "    2. Add Polyline.\n";
+  std::cout << "    3. Add Rectangle.\n";
+  std::cout << "    4. Add Triangle.\n";
+  std::cout << "    5. Change drawing color.\n";
+
+  std::cin >> iActionIndex;
+
+  while (iActionIndex > 5 || iActionIndex < 1)
+  {
+    std::cout << "\nIndex is incorrect! Input correct index.\n";
+    std::cin >> iActionIndex;
+  }
+
+  return iActionIndex;
+}
+
+void changeDrawingColor(Color& color)
+{
+  int r, g, b;
+
+  std::cout << "\nInput red (0...255): ";
+  std::cin >> r;
+
+  while (r > 255 || r < 0)
+  {
+    std::cout << "\nIndex is incorrect! Input correct index.\n";
+    std::cin >> r;
+  }
+
+  std::cout << "\nInput blue (0...255): ";
+  std::cin >> g;
+
+  while (g > 255 || g < 0)
+  {
+    std::cout << "\nIndex is incorrect! Input correct index.\n";
+    std::cin >> g;
+  }
+
+  std::cout << "\nInput green (0...255): ";
+  std::cin >> b;
+
+  while (b > 255 || b < 0)
+  {
+    std::cout << "\nIndex is incorrect! Input correct index.\n";
+    std::cin >> b;
+  }
+
+  color.setColor(static_cast<uint8_t>(r), static_cast<uint8_t>(g), static_cast<uint8_t>(b));
+
+  system("cls");
+  std::cout << "Color changed.\n";
 }
 
 int main()
@@ -92,6 +152,63 @@ int main()
 
     if (std::abs(ptrTriangle_2->getCenter()->x - 2.6) > 0.1 || ptrTriangle_2->getCenter()->y != 2.0)
       printf("FAIL 6\n");
+  }
+
+  {
+    if (!glfwInit())
+      return -1;
+
+    glfwWindowHint(GLFW_DOUBLEBUFFER, GLFW_FALSE);
+
+    GLFWwindow* window = glfwCreateWindow(1960, 1960, "Trainee task", NULL, NULL);
+    glfwMakeContextCurrent(window);
+    
+    Color color(255, 255, 255);
+    glColor3f(0, 0, 1);
+
+    glBegin(GL_LINES);
+    glVertex2d(-1, 0);
+    glVertex2d(1, 0);
+    glVertex2d(0, -1);
+    glVertex2d(0, 1);
+    glEnd();
+
+    glColor3f(1, 1, 1);
+
+    while (!glfwWindowShouldClose(window))
+    {
+      glFlush();
+      glfwPollEvents();
+
+      switch (actionSelection())
+      {
+      case 1:
+      {
+        Drawer::drawCirce(color);
+        break;
+      }
+      case 2:
+      {
+        Drawer::drawPolyline(color);
+        break;
+      }
+      case 3:
+      {
+        Drawer::drawRectangle(color);
+        break;
+      }
+      case 4:
+      {
+        Drawer::drawTriangle(color);
+        break;
+      }
+      case 5:
+      {
+        changeDrawingColor(color);
+        break;
+      }
+      }
+    }
   }
   return 0;
 }

@@ -7,7 +7,7 @@ class Polyline : public BaseObject
 {
 public:
   Polyline() {};
-  Polyline(Point point);
+  Polyline(Point point_1, Point point_2);
   virtual ~Polyline() override {};
 
   virtual Point* getCenter() override;
