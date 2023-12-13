@@ -21,6 +21,8 @@ Point& createPoint()
       std::cin >> point.x;
     }
 
+    std::cin.clear();
+    std::cin.ignore(32767, '\n');
     std::cout << "\nInput Y coordinate (-100...100): ";
     std::cin >> point.y;
 
@@ -30,8 +32,11 @@ Point& createPoint()
       std::cin.ignore(32767, '\n');
 
       std::cout << "\nIndex is incorrect! Input correct index.\n";
-      std::cin >> point.x;
+      std::cin >> point.y;
     }
+
+    std::cin.clear();
+    std::cin.ignore(32767, '\n');
 
     return point;
 }
